@@ -39,3 +39,18 @@ form input[type=text]{
     font-size: 20px;
     border: none;
 }
+
+/* main section */
+main{
+    margin: 0 200px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card{
+    border: 1px solid black;
+    width: 400px;
+    padding: 20px;
+}

@@ -22,9 +22,11 @@ body{
 
 }
 
-.navbar li{
+.navbar li a{
     margin-left: 50px;
     font-size: 20px;
+    text-decoration: none;
+    color: black;
 }
 
 .navbar button{

@@ -1,0 +1,41 @@
+*{
+    font-family: 'Newsreader', serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: orange;
+}
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+
+}
+
+.navbar li{
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+.navbar button{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 20px;
+}
+
+form input[type=text]{
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+}

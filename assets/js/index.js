@@ -23,6 +23,10 @@ const technologyNews = `https://newsapi.org/v2/top-headlines?category=technology
 const businessNews = `https://newsapi.org/v2/top-headlines?category=business&apiKey=${apiKey}`
 const healthNews = `https://newsapi.org/v2/top-headlines?category=health&apiKey=${apiKey}`
 const scienceNews = `https://newsapi.org/v2/top-headlines?category=science&apiKey=${apiKey}`
+const query = `https://newsapi.org/v2/top-headlines?q=${searchNews}&apiKey=${apiKey}`
+
+// Array to store the news articles
+let articlesArray = [];
 
 // navbar items functionality
 general.addEventListener('click', function(){
@@ -56,3 +60,63 @@ searchButton.addEventListener('click', function(){
 searchNews.addEventListener('click', function(){
 
 });
+
+// general news
+const fetchGeneralNews = async () => {
+    const response = await fetch(generalNews);
+        articlesArray = [];
+        if(response.status >= 200 && response.status < 300){
+            const results = await response.json();
+            articlesArray = results.articles;
+        }
+}
+
+// business news
+const fetchBusinessNews = async () => {
+    const response = await fetch(businessNews);
+        articlesArray = [];
+        if(response.status >= 200 && response.status < 300){
+            const results = await response.json();
+            articlesArray = results.articles;
+        }
+}
+
+// sports news
+const fetchSportsNews = async () => {
+    const response = await fetch(sportsNews);
+        articlesArray = [];
+        if(response.status >= 200 && response.status < 300){
+            const results = await response.json();
+            articlesArray = results.articles;
+        }
+}
+
+// health news
+const fetchHealthNews = async () => {
+    const response = await fetch(healthNews);
+        articlesArray = [];
+        if(response.status >= 200 && response.status < 300){
+            const results = await response.json();
+            articlesArray = results.articles;
+        }
+}
+
+// science news
+const fetchScienceNews = async () => {
+    const response = await fetch(scienceNews);
+        articlesArray = [];
+        if(response.status >= 200 && response.status < 300){
+            const results = await response.json();
+            articlesArray = results.articles;
+        }
+}
+
+// technology news
+const fetchTechnologyNews = async () => {
+    const response = await fetch(technologyNews);
+        articlesArray = [];
+        if(response.status >= 200 && response.status < 300){
+            const results = await response.json();
+            articlesArray = results.articles;
+        }
+}

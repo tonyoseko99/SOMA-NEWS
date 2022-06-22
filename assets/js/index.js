@@ -194,6 +194,9 @@ function showArticles(){
 
         let image = document.createElement('img')
         image.src = articles.urlToImage;
+        // image.setAttribute("height", "200px")
+        // image.setAttribute("width", "200px")
+        
 
         let cardInfo = document.createElement('div')
         cardInfo.className = 'card-info'
@@ -208,7 +211,8 @@ function showArticles(){
 
         let readMore = document.createElement('a')
         readMore.className = 'link'
-        readMore.innerHTML = articles.url;
+        readMore.href = articles.url;
+        readMore.innerHTML = 'Click to Read More'
 
         cardInfo.appendChild(title);
         cardInfo.appendChild(description);

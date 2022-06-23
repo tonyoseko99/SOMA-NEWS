@@ -1,4 +1,4 @@
-// variables
+// navbar variables
 const general = document.getElementById('home')
 const sports = document.getElementById('sports')
 const technology = document.getElementById('technology')
@@ -15,6 +15,7 @@ const newsInfo = document.getElementById('newsInfo')
 // API KEY
 const apiKey = '8d8d51e07d8d40078290e6f9a8c68ed4'
 
+// API URL LINKS
 const topNews = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
 const sportsNews = "https://newsapi.org/v2/top-headlines?category=sports&apiKey="
 const technologyNews = "https://newsapi.org/v2/top-headlines?category=technology&apiKey="
@@ -26,45 +27,37 @@ const query = "https://newsapi.org/v2/top-headlines?q="
 // Array to store the news articles
 let articlesArray = [];
 
-
+// parses data to the homepage by default on JS Domcontent load
 window.onload = function() {
-    newsHeader.innerHTML="Headlines";
     fetchTopNews();
 };
 
 
 // navbar items functionality
 general.addEventListener('click', function(){
-    newsHeader.innerHTML = "General News";
     fetchTopNews();
 
 });
 
 sports.addEventListener('click', function(){
-    newsHeader.innerHTML = "Sports";
     fetchSportsNews();
 });
 
 technology.addEventListener('click', function(){
-    newsHeader.innerHTML = "Technology";
     fetchTechnologyNews();
 });
 
 business.addEventListener('click', function(){
-    newsHeader.innerHTML = "Business";
     fetchBusinessNews();
 });
 
 health.addEventListener('click', function(){
-    newsHeader.innerHTML = "Health";
     fetchHealthNews();
 
 });
 
 science.addEventListener('click', function(){
-    newsHeader.innerHTML = "Science";
     fetchScienceNews();
-
 });
 
 searchButton.addEventListener('click', function(){
@@ -87,7 +80,6 @@ const fetchTopNews = async () => {
     showArticles()
 }
 
-
 // business news
 const fetchBusinessNews = async () => {
     const response = await fetch(businessNews + apiKey);
@@ -99,8 +91,8 @@ const fetchBusinessNews = async () => {
             console.log("error")
             return;
         }
+    showArticles()
 }
-showArticles()
 
 // sports news
 const fetchSportsNews = async () => {
@@ -116,7 +108,6 @@ const fetchSportsNews = async () => {
     showArticles()
 }
 
-
 // health news
 const fetchHealthNews = async () => {
     const response = await fetch(healthNews + apiKey);
@@ -130,7 +121,6 @@ const fetchHealthNews = async () => {
         }
     showArticles()
 }
-
 
 // science news
 const fetchScienceNews = async () => {
@@ -146,7 +136,6 @@ const fetchScienceNews = async () => {
     showArticles()
 }
 
-
 // technology news
 const fetchTechnologyNews = async () => {
     const response = await fetch(technologyNews + apiKey);
@@ -161,12 +150,9 @@ const fetchTechnologyNews = async () => {
     showArticles()
 }
 
-
 // search functionality
 const queryNews = async () => {
-    if (search.value == null){
-        return;
-    }
+   
     const response = await fetch(query + encodeURIComponent(searchNews.value)+"&apiKey="+ apiKey);
     articlesArray = [];
     if(response.status >= 200 && response.status < 300) {
@@ -194,9 +180,6 @@ function showArticles(){
 
         let image = document.createElement('img')
         image.src = articles.urlToImage;
-        // image.setAttribute("height", "200px")
-        // image.setAttribute("width", "200px")
-        
 
         let cardInfo = document.createElement('div')
         cardInfo.className = 'card-info'
